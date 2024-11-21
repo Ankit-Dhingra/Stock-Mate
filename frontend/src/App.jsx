@@ -20,7 +20,7 @@ const App = () => {
 
     try {
       // Fetch current price for the symbol
-      const currentResponse = await fetch(`http://localhost:8080/api/stocks/${symbol}`);
+      const currentResponse = await fetch(`https://stock-mate.onrender.com/api/stocks/${symbol}`);
       const currentData = await currentResponse.json();
       if (currentData.message) {
         toast.error(currentData.message);
@@ -29,7 +29,7 @@ const App = () => {
       setCurrentPrice(currentData.price);
 
       // Fetch stock history for the symbol
-      const historyResponse = await fetch(`http://localhost:8080/api/stocks/history/${symbol}`);
+      const historyResponse = await fetch(`https://stock-mate.onrender.com/api/stocks/history/${symbol}`);
       const historyData = await historyResponse.json();
       setHistory(historyData);
     } catch (err) {
